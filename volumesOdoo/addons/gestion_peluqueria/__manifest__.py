@@ -4,7 +4,7 @@
     # Información principal del módulo
     # ─────────────────────────────────────────
     'name': 'Gestión Peluquería',
-    'version': '16.0.1.0.0',
+    'version': '17.0.1.0.0',
     'summary': 'Sistema de gestión para peluquerías y centros de estética',
     'description': """
         Módulo para gestionar citas, empleados, clientes y servicios
