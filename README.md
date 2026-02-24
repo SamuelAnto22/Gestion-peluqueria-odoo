@@ -5,7 +5,7 @@ Incluye gestión de citas, empleados, servicios y cobro rápido.
 
 ---
 
-## 📋 Requisitos técnicos cubiertos
+##  Requisitos técnicos cubiertos
 
 | Requisito | Descripción | Archivo |
 |-----------|-------------|---------|
@@ -88,7 +88,7 @@ gestion_peluqueria/
 
 1. Clona el repositorio en tu máquina local
 ```bash
-git clone https://github.com/SamuelAnto22/Gestion-peluqueria-odoo
+git clone https://github.com/SamuelAnto22/Gestion-peluqueria-odoo.git
 ```
 
 2. Copia la carpeta `gestion_peluqueria` dentro del directorio `addons` de tu instalación de Odoo
@@ -101,7 +101,7 @@ git clone https://github.com/SamuelAnto22/Gestion-peluqueria-odoo
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+## Tecnologías utilizadas
 
 - **Odoo 16** - Framework ERP
 - **Python 3.10** - Lógica de negocio y modelos
@@ -111,7 +111,7 @@ git clone https://github.com/SamuelAnto22/Gestion-peluqueria-odoo
 
 ---
 
-## 👤 Autor
+## Autor
 
 **Samuel Cordova Rojas** · CFGS · IES Benigasló  
 Módulo desarrollado como Proyecto Modular del módulo *Sistemes de Gestió Empresarial*
