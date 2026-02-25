@@ -46,19 +46,15 @@
                         <group>
                             <field name="total_citas" readonly="1"/>
                         </group>
-                        <notebook>
+
+                    </group>
+                    <notebook>
                             <page string="citas">
                                 <field name="cita_id"/>
                             </page>
                         </notebook>
-                    </group>
                 </sheet>
             </form>
         </field>
     </record>
-
-
-
-
-
 </odoo>
