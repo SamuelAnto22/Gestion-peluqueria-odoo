@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="salon_client_action" model="ir.actions.act_window">
+        <field name="name">Cliente</field>
+        <field name="res_model">salon.client</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem name="Gestión de la Peluqueria" id="cliente_base_menu"/>
+    <menuitem name="Clientes"
+              id="cliente_menu"
+              parent="cliente_base_menu"
+              action="salon_client_action"/>
+
+    <record id="gestion_cliente_view_list" model="ir.ui.view">
+        <field name="name">Lista de clientes</field>
+        <field name="model">salon.client</field>
+        <field name="arch" type="xml">
+            <tree string="Listado de los clientes">
+                <field name="nombre"/>
+                <field name="telefono"/>
+                <field name="observaciones"/>
+                <field name="cita_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="gestion_cliente_form" model="ir.ui.view">
+        <field name="name">Formulario del cliente</field>
+        <field name="model">salon.client</field>
+        <field name="arch" type="xml">
+            <form string="Ficha del cliente">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="nombre"/>
+                            <field name="edad"/>
+                            <field name="telefono"/>
+                            <field name="email"/>
+                        </group>
+                        <group>
+                            <field name="observaciones"/>
+                        </group>
+                        <group>
+                            <field name="total_citas" readonly="1"/>
+                            <field name="total_pagado" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>
