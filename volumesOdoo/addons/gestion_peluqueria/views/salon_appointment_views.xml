@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="salon_appointment_action" model="ir.actions.act_window">
+        <field name="name">Cita</field>
+        <field name="res_model">salon.appointment</field>
+        <field name="view_mode">list,form,kanban,calendar</field>
+    </record>
+
+    <menuitem name="Citas"
+              id="citas_base_menu"
+              parent="cliente_base_menu"
+              action="salon_appointment_action"
+              sequence="50"
+    />
+
+    <record id="gestion_citas_view_list" model="ir.ui.view">
+        <field name="name">Lista de las citas</field>
+        <field name="model">salon.appointment</field>
+        <field name="arch" type="xml">
+            <tree string="Listado de las citas"
+                  decoration-danger="estado == 'no_presentado'"
+                  decoration-success="estado == 'pagada'"
+                  decoration-warning="estado == 'pendiente'"
+                  decoration-info="estado == 'confirmada'"
+                  decoration-muted="estado == 'en_curso'"
+
+            >
+                <field name="cliente_id"/>
+                <field name="empleado_id"/>
+                <field name="servicio_ids"/>
+                <field name="fecha"/>
+                <field name="precio_total"/>
+                <field name="estado"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="gestion_citas_form" model="ir.ui.view">
+        <field name="name">Formulario de las citas</field>
+        <field name="model">salon.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Ficha de la cita">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="cliente_id"/>
+                            <field name="empleado_id"/>
+                            <field name="servicio_ids">
+                                <tree editable="bottom">
+                                    <field name="nombre"/>
+                                    <field name="especialidad"/>
+                                    <field name="precio"/>
+                                    <field name="duracion"/>
+                                </tree>
+                            </field>
+                            <field name="fecha"/>
+                            <field name="estado"/>
+                        </group>
+
+                        <group>
+                            <field name="precio_total" readonly="1"/>
+                            <field name="duracion_total" readonly="1"/>
+                        </group>
+
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="gestion_citas_view_kanban" model="ir.ui.view">
+        <field name="name"> kanban de las citas</field>
+        <field name="model">salon.appointment</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="estado">
+                <field name="cliente_id"/>
+                <field name="empleado_id"/>
+                <field name="servicio_ids"/>
+                <field name="estado"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record">
+                            <div class="o_kanban_details">
+                                <strong><field name="estado"/></strong>
+                                <field name="cliente_id"/>
+                                <field name="empleado_id"/>
+                                <field name="servicio_ids"/>
+                            </div>
+
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="gestion_citas_view__calendar" model="ir.ui.view">
+          <field name="name">Calendario de las citas</field>
+          <field name="model">salon.appointment</field>
+          <field name="arch" type="xml">
+            <calendar string="Calendario de las citas" date_start="fecha">
+                <field name="cliente_id"/>
+                <field name="empleado_id"/>
+                <field name="servicio_ids"/>
+            </calendar>
+          </field>
+    </record>
+
+    <record id="gestion_citas_view_search" model="ir.ui.view">
+        <field name="name">Búsqueda de citas</field>
+        <field name="model">salon.appointment</field>
+        <field name="arch" type="xml">
+            <search string="Buscar citas">
+
+
+                <field name="cliente_id"/>
+                <field name="empleado_id"/>
+                <field name="estado"/>
+
+
+                <filter name="filtro_pendiente" string="Pendiente"
+                  domain="[('estado','=','pendiente')]"/>
+                <filter name="filtro_confirmada" string="Confirmada"
+                  domain="[('estado','=','confirmada')]"/>
+                <filter name="filtro_en_curso" string="En curso"
+                  domain="[('estado','=','en_curso')]"/>
+                <filter name="filtro_pagada" string="Pagada"
+                  domain="[('estado','=','pagada')]"/>
+                <filter name="filtro_no_presentado" string="No presentado"
+                  domain="[('estado','=','no_presentado')]"/>
+
+
+
+        </search>
+        </field>
+    </record>
+
+</odoo>
