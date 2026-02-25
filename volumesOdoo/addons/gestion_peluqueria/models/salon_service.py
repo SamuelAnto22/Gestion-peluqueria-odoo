@@ -10,3 +10,5 @@ class salonService(models.Model):
     precio=fields.Float(string="Precio", required=True,default=0.0)
     duracion=fields.Float(string="Duracion en minutos",required=True,default=30.0)
     especialidad=fields.Selection([('peluquero','Peluquero/a'),('manicurista','Manicurista'),('estetecista','Esteticista')],string="Especialidad")
+    currency_id = fields.Many2one('res.currency', string="Moneda",
+                                  default=lambda self: self.env.company.currency_id)
