@@ -20,7 +20,6 @@
                 <field name="nombre"/>
                 <field name="telefono"/>
                 <field name="observaciones"/>
-                <field name="cita_id"/>
             </tree>
         </field>
     </record>
@@ -46,6 +45,18 @@
                             <field name="total_pagado" readonly="1"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Citas del cliente">
+                            <field name="cita_id">
+                                <tree>
+                                    <field name="fecha"/>
+                                    <field name="empleado_id"/>
+                                    <field name="estado"/>
+                                    <field name="precio_total"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
