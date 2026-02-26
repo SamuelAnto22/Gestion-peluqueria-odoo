@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_wizard_payment" model="ir.actions.act_window">
+        <field name="name">Añadir Pago</field>
+        <field name="res_model">payment.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+        <record id="payment_wizard_form" model="ir.ui.view">
+        <field name="name">Wizard para registrar un nuevo pago</field>
+        <field name="model">payment.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Añadir un nuevo registro de pago">
+                <sheet>
+                    <group>
+                        <field name="cita_id"/>
+                        <field name="metodo_pago"/>
+                        <field name="descuento"/>
+                        <field name="precio_final" readonly="1"/>
+                    </group>
+                </sheet>
+
+                <footer>
+                    <button name="confirm_payment"
+                            string="Confirmar Pago"
+                            type="object"
+                            class="btn-primary"/>
+                    <button string="Cancelar"
+                            class="btn-secondary"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
