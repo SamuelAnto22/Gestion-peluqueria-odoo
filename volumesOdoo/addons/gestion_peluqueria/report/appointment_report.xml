@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_appointment" model="ir.actions.report">
+        <field name="name">Desglose de servicios</field>
+        <field name="model">salon.appointment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">gestion_peluqueria.report_salon_appointment</field>
+        <field name="report_file">gestion_peluqueria.report_salon_appointment</field>
+        <field name="binding_model_id" ref="model_salon_appointment"/>
+        <field name="binding_type">report</field>
+        <field name="binding_view_types">form</field>
+        <field name="print_report_name">
+                'Servicio - %s' % (object.cliente_id)
+        </field>
+    </record>
+
+
+    <template id="report_appointment">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1>Servicios del cliente</h1>
+                        <p>Nombre del cliente: <span t-field="doc.cliente_id"/></p>
+                        <p>Fecha de la cita: <span t-field="doc.fecha"/></p>
+                        <p>Empleado: <span t-field="doc.empleado_id"/></p>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Servicio</th>
+                                    <th>Precio</th>
+                                    <th>Duración</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="doc.servicio_ids" t-as="servicio">
+                                    <tr>
+                                        <td><t t-field="servicio.nombre"/></td>
+                                        <td><t t-field="servicio.precio"/></td>
+                                        <td><t t-field="servicio.duracion"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <p>Precio total: <span t-field="doc.precio_total"/></p>
+                        <p>Duracion total: <span t-field="doc.duracion_total"/></p>
+                        <p>Estado de la cita: <span t-field="doc.estado"/></p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+
+</odoo>
