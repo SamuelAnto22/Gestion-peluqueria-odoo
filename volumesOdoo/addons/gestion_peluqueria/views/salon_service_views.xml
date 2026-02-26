@@ -6,12 +6,7 @@
         <field name="view_mode">list,form</field>
     </record>
 
-    <menuitem name="Servicios"
-              id="servicio_base_menu"
-              parent="cliente_base_menu"
-              action="salon_service_action"
-              sequence="40"
-    />
+
 
     <record id="gestion_servicio_view_list" model="ir.ui.view">
         <field name="name">Lista de los servicios</field>

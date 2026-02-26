@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem name="Peluqueria" id="peluqueria_main_menu" sequence="10"/>
+
+    <menuitem name="Clientes"
+              id="cliente_menu"
+              parent="peluqueria_main_menu"
+              action="salon_client_action"
+              sequence="20"
+    />
+
+    <menuitem name="Empleado"
+              id="empleado_menu"
+              parent="peluqueria_main_menu"
+              action="salon_employee_action"
+              sequence="30"
+    />
+
+     <menuitem name="Servicios"
+              id="servicio_menu"
+              parent="peluqueria_main_menu"
+              action="salon_service_action"
+              sequence="40"
+    />
+
+
+    <menuitem name="Citas"
+              id="citas_menu"
+              parent="peluqueria_main_menu"
+              action="salon_appointment_action"
+              sequence="50"
+    />
+
+
+
+
+</odoo>

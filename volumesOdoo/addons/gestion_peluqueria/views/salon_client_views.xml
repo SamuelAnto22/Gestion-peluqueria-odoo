@@ -6,11 +6,7 @@
         <field name="view_mode">list,form</field>
     </record>
 
-    <menuitem name="Gestión de la Peluqueria" id="cliente_base_menu"/>
-    <menuitem name="Clientes"
-              id="cliente_menu"
-              parent="cliente_base_menu"
-              action="salon_client_action"/>
+
 
     <record id="gestion_cliente_view_list" model="ir.ui.view">
         <field name="name">Lista de clientes</field>

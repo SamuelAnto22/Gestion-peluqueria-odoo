@@ -6,12 +6,7 @@
         <field name="view_mode">list,form</field>
     </record>
 
-    <menuitem name="Gestión del empleado"
-              id="empleado_base_menu"
-              parent="cliente_base_menu"
-              action="salon_employee_action"
-              sequence="30"
-    />
+
 
     <record id="gestion_empleado_view_list" model="ir.ui.view">
         <field name="name">Lista de Empleados</field>
