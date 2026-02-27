@@ -1,5 +1,6 @@
 from odoo import http
 from odoo.http import request
+from datetime import timedelta
 
 
 class Main(http.Controller):
@@ -18,8 +19,9 @@ class Main(http.Controller):
         resultado = f"<h1>Citas de {cliente.nombre}</h1>"
 
         for cita in citas:
+            fecha_local = cita.fecha + timedelta(hours=1)  # sumo 1 hora por horario de invierno
             resultado += f"""
-                <p> Fecha: {cita.fecha}</p>
+                <p> Fecha: {fecha_local}</p>
                 <p> Empleado: {cita.empleado_id.nombre}</p>
                 <p> Estado: {cita.estado}</p>
                 <p> Precio total: {cita.precio_total}€</p>
