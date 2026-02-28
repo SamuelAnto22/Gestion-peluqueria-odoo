@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- ===============================================================
-         MENÚ PRINCIPAL Y SUBMENÚ DE CLIENTES, EMPLEADOS, SERVICIOS Y CITAS
+         MENÚ PRINCIPAL Y SUBMENÚ DE CLIENTES, EMPLEADOS, SERVICIOS , CITAS Y EL WIZARD
          =============================================================== -->
     <menuitem name="Peluqueria" id="peluqueria_main_menu" sequence="10"/>
 
@@ -32,6 +32,13 @@
               parent="peluqueria_main_menu"
               action="salon_appointment_action"
               sequence="50"
+    />
+
+    <menuitem name="Registrar pago (Wizard)"
+              id="payment_wizard"
+              parent="peluqueria_main_menu"
+              action="action_wizard_payment"
+              sequence="60"
     />
 
 
