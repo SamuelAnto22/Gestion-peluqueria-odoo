@@ -17,7 +17,7 @@ class SalonAppointment(models.Model):
     fecha=fields.Datetime(string="Fecha",required=True)
 
     # computado: precio total de la cita(sumando los precios de los servicios).
-    precio_total=fields.Float(string="Precio Total",compute='_compute_precio_total')
+    precio_total=fields.Float(string="Precio Total",compute='_compute_precio_total', store=True)
 
     estado = fields.Selection([
         ('pendiente', 'Pendiente'),
