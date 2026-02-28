@@ -1,17 +1,24 @@
+# Este archivo define el modelo "salon.appointment" que representa cada cita
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
+# Modelo que almacena información de las citas.
 class SalonAppointment(models.Model):
     _name="salon.appointment"
     _description="Modelo de las citas"
     _order="fecha"
     _rec_name="cliente_id"
 
-    cliente_id=fields.Many2one('salon.client',"nombre",required=True)
-    empleado_id=fields.Many2one('salon.employee',"nombre",required=True)
+    # === CAMPOS ===
+    #campos que se relacionan con los otros modelos.
+    cliente_id=fields.Many2one('salon.client',string="Cliente",required=True)
+    empleado_id=fields.Many2one('salon.employee',string="Empleado",required=True)
     servicio_ids=fields.Many2many('salon.service',string="Servicios")
     fecha=fields.Datetime(string="Fecha",required=True)
+
+    # computado: precio total de la cita(sumando los precios de los servicios).
     precio_total=fields.Float(string="Precio Total",compute='_compute_precio_total')
+
     estado = fields.Selection([
         ('pendiente', 'Pendiente'),
         ('confirmada', 'Confirmada'),
@@ -19,6 +26,8 @@ class SalonAppointment(models.Model):
         ('pagada', 'Pagada'),
         ('no_presentado', 'No Presentado'),
     ], string="Estado", default='pendiente')
+
+    #computado: duracion total de la cita(sumando las duraciones de los servicios).
     duracion_total = fields.Float(string="Duración Total (min)", compute='_compute_duracion_total')
 
 
@@ -30,6 +39,10 @@ class SalonAppointment(models.Model):
     def _compute_duracion_total(self):
         for record in self:
             record.duracion_total=sum(record.servicio_ids.mapped('duracion'))
+
+   #Validaciones
+
+    #validacion de que la especialidad del empleado sea igual a la del servicio.#
     @api.constrains('empleado_id','servicio_ids')
     def _check_especialidad(self):
         for record in self:
@@ -37,12 +50,15 @@ class SalonAppointment(models.Model):
                 if servicio.especialidad != record.empleado_id.especialidad:
                     raise ValidationError("La especialidad del empleado debe ser igual a la del servicio")
 
+    #validacion de que la fecha no sea anterior a la actual.
     @api.constrains('fecha')
     def _check_date_(self):
         for record in self:
             if record.fecha < fields.Datetime.now():
                 raise ValidationError("La fecha no puede ser anterior a la actual")
 
+
+    #validacion de que el empleado tenga disponibilidad para la fecha seleccionada.
     @api.constrains('empleado_id','fecha')
     def _check_free_day_(self):
         dias = {
