@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+     <!-- ===============================================================
+         ACCIÓN DEL WIZARD
+         =============================================================== -->
     <record id="action_wizard_payment" model="ir.actions.act_window">
         <field name="name">Añadir Pago</field>
         <field name="res_model">payment.wizard</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
+
+
+    <!-- ===============================================================
+         VISTA FORMULARIO DEL WIZARD
+         =============================================================== -->
 
         <record id="payment_wizard_form" model="ir.ui.view">
         <field name="name">Wizard para registrar un nuevo pago</field>
