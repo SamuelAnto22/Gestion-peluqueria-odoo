@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- ===============================================================
-         ACCIÓN: Abre las vistas del cliente desde el menú
+         ACCIÓN: Abre las vistas del empleado desde el menú
          =============================================================== -->
     <record id="salon_employee_action" model="ir.actions.act_window">
         <field name="name">Empleados</field>
@@ -10,7 +10,7 @@
     </record>
 
     <!-- ===============================================================
-         LIST VIEW: Lista tabular de clientes
+         LIST VIEW: Lista tabular de empleados
          =============================================================== -->
 
     <record id="gestion_empleado_view_list" model="ir.ui.view">
@@ -29,7 +29,7 @@
     </record>
 
     <!-- ===============================================================
-         FORM VIEW: Vista de formulario para editar un cliente
+         FORM VIEW: Vista de formulario para editar un empleado
          =============================================================== -->
 
     <record id="gestion_empleado_form" model="ir.ui.view">
