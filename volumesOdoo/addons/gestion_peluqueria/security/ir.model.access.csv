@@ -3,4 +3,4 @@ access_salon_client,access_salon_client,model_salon_client,,1,1,1,1
 access_salon_employee,access_salon_employee,model_salon_employee,,1,1,1,1
 access_salon_service,access_salon_service,model_salon_service,,1,1,1,1
 access_salon_appointment,access_salon_appointment,model_salon_appointment,,1,1,1,1
-
+access_payment_wizard,access_payment_wizard,model_payment_wizard,,1,1,1,1
