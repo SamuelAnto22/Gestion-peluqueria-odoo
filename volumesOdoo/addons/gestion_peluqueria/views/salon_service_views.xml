@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- ===============================================================
+         ACCIÓN: Abre las vistas del cliente desde el menú
+         =============================================================== -->
     <record id="salon_service_action" model="ir.actions.act_window">
-        <field name="name">Servicio</field>
+        <field name="name">Servicios</field>
         <field name="res_model">salon.service</field>
         <field name="view_mode">list,form</field>
     </record>
 
 
+    <!-- ===============================================================
+         LIST VIEW: Lista tabular de clientes
+         =============================================================== -->
 
     <record id="gestion_servicio_view_list" model="ir.ui.view">
         <field name="name">Lista de los servicios</field>
@@ -21,6 +27,9 @@
         </field>
     </record>
 
+    <!-- ===============================================================
+         FORM VIEW: Vista de formulario para editar un cliente
+         =============================================================== -->
 
     <record id="gestion_servicio_form" model="ir.ui.view">
         <field name="name">Formulario del servicio</field>
