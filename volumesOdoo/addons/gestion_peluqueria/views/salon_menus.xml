@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- ===============================================================
+         MENÚ PRINCIPAL Y SUBMENÚ DE CLIENTES, EMPLEADOS, SERVICIOS Y CITAS
+         =============================================================== -->
     <menuitem name="Peluqueria" id="peluqueria_main_menu" sequence="10"/>
 
     <menuitem name="Clientes"
@@ -9,7 +12,7 @@
               sequence="20"
     />
 
-    <menuitem name="Empleado"
+    <menuitem name="Empleados"
               id="empleado_menu"
               parent="peluqueria_main_menu"
               action="salon_employee_action"
