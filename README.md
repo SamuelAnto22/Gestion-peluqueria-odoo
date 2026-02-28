@@ -103,7 +103,7 @@ git clone https://github.com/SamuelAnto22/Gestion-peluqueria-odoo.git
 
 ## Tecnologías utilizadas
 
-- **Odoo 16** - Framework ERP
+- **Odoo 17** - Framework ERP
 - **Python 3.10** - Lógica de negocio y modelos
 - **XML** - Definición de vistas y reportes
 - **QWeb** - Motor de plantillas para el PDF
