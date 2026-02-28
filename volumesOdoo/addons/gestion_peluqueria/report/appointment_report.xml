@@ -32,7 +32,7 @@
     Usa t-call="web.html_container" para incluir headers/footers estándar de Odoo
     Itera sobre 'docs' (conjunto de registros seleccionados) para permitir impresión masiva
 -->
-    <template id="report_appointment">
+    <template id="report_salon_appointment">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
                 <t t-call="web.external_layout">
@@ -53,9 +53,9 @@
                             <tbody>
                                 <t t-foreach="doc.servicio_ids" t-as="servicio">
                                     <tr>
-                                        <td><t t-field="servicio.nombre"/></td>
-                                        <td><t t-field="servicio.precio"/></td>
-                                        <td><t t-field="servicio.duracion"/></td>
+                                        <td><span t-field="servicio.nombre"/></td>
+                                        <td><span t-field="servicio.precio"/></td>
+                                        <td><span t-field="servicio.duracion"/></td>
                                     </tr>
                                 </t>
                             </tbody>
@@ -69,7 +69,4 @@
             </t>
         </t>
     </template>
-
-
-
 </odoo>
