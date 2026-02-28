@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- ===============================================================
+         ACCIÓN: Abre las vistas de las citas desde el menú
+         =============================================================== -->
     <record id="salon_appointment_action" model="ir.actions.act_window">
         <field name="name">Cita</field>
         <field name="res_model">salon.appointment</field>
@@ -7,7 +10,9 @@
     </record>
 
 
-
+    <!-- ===============================================================
+         LIST VIEW: Lista tabular de las citas
+         =============================================================== -->
     <record id="gestion_citas_view_list" model="ir.ui.view">
         <field name="name">Lista de las citas</field>
         <field name="model">salon.appointment</field>
@@ -30,6 +35,9 @@
         </field>
     </record>
 
+    <!-- ===============================================================
+         FORM VIEW: Vista de formulario para editar una cita
+         =============================================================== -->
     <record id="gestion_citas_form" model="ir.ui.view">
         <field name="name">Formulario de las citas</field>
         <field name="model">salon.appointment</field>
@@ -65,6 +73,9 @@
     </record>
 
 
+    <!-- ===============================================================
+         KANBAN VIEW: Vista en tarjetas
+         =============================================================== -->
     <record id="gestion_citas_view_kanban" model="ir.ui.view">
         <field name="name"> kanban de las citas</field>
         <field name="model">salon.appointment</field>
@@ -78,12 +89,30 @@
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click o_kanban_record">
                             <div class="o_kanban_details">
-                                <strong><field name="estado"/></strong>
-                                <field name="cliente_id"/>
-                                <field name="empleado_id"/>
-                                <field name="servicio_ids"/>
-                            </div>
+                                <strong><field name="cliente_id"/></strong>
 
+                                <div>
+                                    <span class="text-muted">Empleado: </span>
+                                    <field name="empleado_id"/>
+                                </div>
+
+                                <div>
+                                    <span class="text-muted">Fecha: </span>
+                                    <field name="fecha"/>
+                                </div>
+
+
+                                <div>
+                                    <span class="text-muted">Total: </span>
+                                    <field name="precio_total"/>€
+                                </div>
+
+
+                                <div class="mt4">
+                                    <span class="badge"><field name="estado"/>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </t>
                 </templates>
@@ -91,11 +120,14 @@
         </field>
     </record>
 
+    <!-- ===============================================================
+         CALENDAR VIEW: Calendario con las fechas de las citas
+         =============================================================== -->
     <record id="gestion_citas_view__calendar" model="ir.ui.view">
           <field name="name">Calendario de las citas</field>
           <field name="model">salon.appointment</field>
           <field name="arch" type="xml">
-            <calendar string="Calendario de las citas" date_start="fecha">
+            <calendar string="Calendario de las citas" date_start="fecha" color="empleado_id" mode="month">>
                 <field name="cliente_id"/>
                 <field name="empleado_id"/>
                 <field name="servicio_ids"/>
@@ -103,6 +135,9 @@
           </field>
     </record>
 
+    <!-- ===============================================================
+         SEARCH VIEW: Barra de búsqueda con filtros para cada estado
+         =============================================================== -->
     <record id="gestion_citas_view_search" model="ir.ui.view">
         <field name="name">Búsqueda de citas</field>
         <field name="model">salon.appointment</field>
@@ -125,10 +160,7 @@
                   domain="[('estado','=','pagada')]"/>
                 <filter name="filtro_no_presentado" string="No presentado"
                   domain="[('estado','=','no_presentado')]"/>
-
-
-
-        </search>
+            </search>
         </field>
     </record>
 
