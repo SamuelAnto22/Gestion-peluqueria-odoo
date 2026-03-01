@@ -65,25 +65,6 @@ gestion_peluqueria/
 
 ---
 
-##Capturas de pantalla
-
-### Vista Kanban de Citas
-![Kanban](docs/screenshots/01_vista_kanban.png)
-
-### Formulario de Cita con líneas editables
-![Formulario](docs/screenshots/02_formulario_cita.png)
-
-### Wizard de Cobro Rápido
-![Wizard](docs/screenshots/03_wizard_cobro.png)
-
-### Ticket PDF generado
-![Report](docs/screenshots/04_report_pdf.png)
-
-### Web Controller - Consulta por teléfono
-![Controller](docs/screenshots/05_web_controller.png)
-
----
-
 ##Instalación
 
 1. Clona el repositorio en tu máquina local
