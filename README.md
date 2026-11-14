@@ -1,6 +1,6 @@
 #Gestión Peluquería - Módulo Odoo
 
-Módulo de gestión completo para una peluquería / centro de estética desarrollado en Odoo 16.
+Módulo de gestión completo para una peluquería / centro de estética desarrollado en Odoo 17.
 Incluye gestión de citas, empleados, servicios y cobro rápido.
 
 ---
